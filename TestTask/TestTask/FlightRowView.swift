@@ -12,9 +12,9 @@ struct FlightRowView: View {
     
     var body: some View {
         HStack {
-            Text("\(L10n.pricePlaceholder): \(viewModel.price)")
+            Text("\(L10n.pricePlaceholder): \(viewModel.price, specifier: "%.2f")")
             Spacer()
-            Text("\(L10n.durationPlaceholder): \(viewModel.duration) min")
+            Text("\(L10n.durationPlaceholder): \(viewModel.duration, specifier: "%.2f") min")
         }
     }
 }
