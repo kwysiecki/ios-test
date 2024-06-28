@@ -11,7 +11,9 @@ import SwiftUI
 struct TestTaskApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let flightsService = FlightsServiceImpl()
+            let viewModel = FlightListViewModel(flightsService: flightsService)
+            FlightListView(viewModel: viewModel)
         }
     }
 }
