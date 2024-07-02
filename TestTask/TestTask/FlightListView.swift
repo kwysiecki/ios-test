@@ -6,28 +6,33 @@
 //
 
 import SwiftUI
+import Combine
 
 struct FlightListView: View {
-    @ObservedObject var viewModel: FlightListViewModel
+    @ObservedObject var viewModelWrapper: FlightListViewModelWrapper
+    
+    public init(viewModelWrapper: FlightListViewModelWrapper) {
+           self.viewModelWrapper = viewModelWrapper
+       }
     
     var body: some View {
         NavigationView {
             VStack {
-                SimpleTextView(title: L10n.pricePlaceholder, text: $viewModel.newFlightPrice, keyboardType: .decimalPad)
-                SimpleTextView(title: L10n.durationPlaceholder, text: $viewModel.newFlightDuration, keyboardType: .numberPad)
+                SimpleTextView(title: L10n.pricePlaceholder, text: $viewModelWrapper.viewModel.newFlightPrice, keyboardType: .decimalPad)
+                SimpleTextView(title: L10n.durationPlaceholder, text: $viewModelWrapper.viewModel.newFlightDuration, keyboardType: .numberPad)
                 
                 SimpleButton(title: L10n.addButtonTitle) {
-                    viewModel.addFlight()
+                    viewModelWrapper.viewModel.addFlight()
                 }
 
                 List {
-                    ForEach(viewModel.flights) { flightViewModel in
+                    ForEach(viewModelWrapper.flights) { flightViewModel in
                         FlightRowView(viewModel: flightViewModel)
                     }
-                    .onDelete(perform: viewModel.removeFlight)
+                    .onDelete(perform: viewModelWrapper.viewModel.removeFlight)
                 }
 
-                Text("\(L10n.totalCostLabel) \(viewModel.totalCost, specifier: "%.2f")")
+                Text("\(L10n.totalCostLabel) \(viewModelWrapper.totalCost, specifier: "%.2f")")
                     .font(.headline)
                     .padding()
             }
@@ -40,6 +45,7 @@ struct FlightListView_Previews: PreviewProvider {
     static var previews: some View {
         let flightsService = FlightsServiceImpl()
         let viewModel = FlightListViewModel(flightsService: flightsService)
-        FlightListView(viewModel: viewModel)
+        let viewModelWrapper = FlightListViewModelWrapper(viewModel: viewModel)
+        FlightListView(viewModelWrapper: viewModelWrapper)
     }
 }

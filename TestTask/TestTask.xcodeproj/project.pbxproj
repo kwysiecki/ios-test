@@ -22,6 +22,8 @@
 		F51349BC2C2EBEFD006FE6AE /* FlightsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51349BB2C2EBEFD006FE6AE /* FlightsService.swift */; };
 		F51349BE2C2EBF1D006FE6AE /* FlightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51349BD2C2EBF1D006FE6AE /* FlightViewModel.swift */; };
 		F51349C02C2EBF53006FE6AE /* FlightRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51349BF2C2EBF53006FE6AE /* FlightRowView.swift */; };
+		F5D703812C34AAAC005D9BDB /* FlightListViewModelWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D703802C34AAAC005D9BDB /* FlightListViewModelWrapper.swift */; };
+		F5D703832C34AFCF005D9BDB /* FlightListViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D703822C34AFCF005D9BDB /* FlightListViewContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,8 @@
 		F51349BB2C2EBEFD006FE6AE /* FlightsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsService.swift; sourceTree = "<group>"; };
 		F51349BD2C2EBF1D006FE6AE /* FlightViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightViewModel.swift; sourceTree = "<group>"; };
 		F51349BF2C2EBF53006FE6AE /* FlightRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightRowView.swift; sourceTree = "<group>"; };
+		F5D703802C34AAAC005D9BDB /* FlightListViewModelWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightListViewModelWrapper.swift; sourceTree = "<group>"; };
+		F5D703822C34AFCF005D9BDB /* FlightListViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightListViewContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,7 @@
 			children = (
 				F51349C12C2EC168006FE6AE /* Models */,
 				F51349862C2EA01D006FE6AE /* TestTaskApp.swift */,
+				F5D703822C34AFCF005D9BDB /* FlightListViewContainer.swift */,
 				F51349882C2EA01D006FE6AE /* FlightListView.swift */,
 				F513498A2C2EA01E006FE6AE /* Assets.xcassets */,
 				F513498C2C2EA01E006FE6AE /* Preview Content */,
@@ -152,11 +157,20 @@
 		F51349C12C2EC168006FE6AE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F5D7037F2C34AA8E005D9BDB /* Wrapper */,
 				F51349B92C2EBE5E006FE6AE /* Flight.swift */,
 				F51349B02C2EA03D006FE6AE /* FlightListViewModel.swift */,
 				F51349BD2C2EBF1D006FE6AE /* FlightViewModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F5D7037F2C34AA8E005D9BDB /* Wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				F5D703802C34AAAC005D9BDB /* FlightListViewModelWrapper.swift */,
+			);
+			path = Wrapper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,10 +307,12 @@
 				F51349BC2C2EBEFD006FE6AE /* FlightsService.swift in Sources */,
 				F51349B42C2EB994006FE6AE /* SimpleTextView.swift in Sources */,
 				F51349B82C2EBD1B006FE6AE /* L10n.swift in Sources */,
+				F5D703832C34AFCF005D9BDB /* FlightListViewContainer.swift in Sources */,
 				F51349892C2EA01D006FE6AE /* FlightListView.swift in Sources */,
 				F51349872C2EA01D006FE6AE /* TestTaskApp.swift in Sources */,
 				F51349BE2C2EBF1D006FE6AE /* FlightViewModel.swift in Sources */,
 				F51349C02C2EBF53006FE6AE /* FlightRowView.swift in Sources */,
+				F5D703812C34AAAC005D9BDB /* FlightListViewModelWrapper.swift in Sources */,
 				F51349B62C2EBAA4006FE6AE /* SimpleButton.swift in Sources */,
 				F51349BA2C2EBE5E006FE6AE /* Flight.swift in Sources */,
 			);

@@ -9,11 +9,12 @@ import SwiftUI
 
 @main
 struct TestTaskApp: App {
+    
+    let conatainer = FlightListViewContainer()
+    
     var body: some Scene {
         WindowGroup {
-            let flightsService = FlightsServiceImpl()
-            let viewModel = FlightListViewModel(flightsService: flightsService)
-            FlightListView(viewModel: viewModel)
+            conatainer.makeFlightListView()
         }
     }
 }

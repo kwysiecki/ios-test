@@ -9,23 +9,18 @@ import Foundation
 import Combine
 
 class FlightListViewModel: ObservableObject {
-    @Published var flights: [FlightViewModel] = []
-    @Published var totalCost: Double = 0.0
     @Published var newFlightPrice: String = ""
     @Published var newFlightDuration: String = ""
+
+    var flightSubject = CurrentValueSubject<[FlightViewModel], Never>([])
+    var totalCostSubject = CurrentValueSubject<Double, Never>(0.0)
     
-    private var cancellables = Set<AnyCancellable>()
     private let flightsService: FlightsService
     
     init(flightsService: FlightsService) {
         self.flightsService = flightsService
-        self.flights = flightsService.flights.map { FlightViewModel(flight: $0) }
-
-        $flights
-            .sink { [weak self] _ in
-                self?.totalCost = flightsService.calculateTotalCost()
-            }
-            .store(in: &cancellables)
+        
+        reloadData()
     }
     
     func addFlight() {
@@ -34,13 +29,18 @@ class FlightListViewModel: ObservableObject {
         }
         
         flightsService.addFlight(price: price, duration: duration)
-        flights = flightsService.flights.map { FlightViewModel(flight: $0) }
+        reloadData()
         newFlightPrice = ""
         newFlightDuration = ""
     }
     
     func removeFlight(at offsets: IndexSet) {
         flightsService.removeFlight(at: offsets)
-        flights = flightsService.flights.map { FlightViewModel(flight: $0) }
+        reloadData()
+    }
+    
+    private func reloadData() {
+        self.flightSubject.send(flightsService.flights.map { FlightViewModel(flight: $0) })
+        self.totalCostSubject.send(flightsService.calculateTotalCost())
     }
 }
