@@ -24,6 +24,8 @@
 		F51349C02C2EBF53006FE6AE /* FlightRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51349BF2C2EBF53006FE6AE /* FlightRowView.swift */; };
 		F5D703812C34AAAC005D9BDB /* FlightListViewModelWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D703802C34AAAC005D9BDB /* FlightListViewModelWrapper.swift */; };
 		F5D703832C34AFCF005D9BDB /* FlightListViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D703822C34AFCF005D9BDB /* FlightListViewContainer.swift */; };
+		F5D703852C34C21E005D9BDB /* MockFlightsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D703842C34C21E005D9BDB /* MockFlightsService.swift */; };
+		F5D703872C34C2BC005D9BDB /* FlightListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D703862C34C2BC005D9BDB /* FlightListViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		F51349BF2C2EBF53006FE6AE /* FlightRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightRowView.swift; sourceTree = "<group>"; };
 		F5D703802C34AAAC005D9BDB /* FlightListViewModelWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightListViewModelWrapper.swift; sourceTree = "<group>"; };
 		F5D703822C34AFCF005D9BDB /* FlightListViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightListViewContainer.swift; sourceTree = "<group>"; };
+		F5D703842C34C21E005D9BDB /* MockFlightsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFlightsService.swift; sourceTree = "<group>"; };
+		F5D703862C34C2BC005D9BDB /* FlightListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightListViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				F51349972C2EA01E006FE6AE /* TestTaskTests.swift */,
+				F5D703842C34C21E005D9BDB /* MockFlightsService.swift */,
+				F5D703862C34C2BC005D9BDB /* FlightListViewModelTests.swift */,
 			);
 			path = TestTaskTests;
 			sourceTree = "<group>";
@@ -322,7 +328,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5D703872C34C2BC005D9BDB /* FlightListViewModelTests.swift in Sources */,
 				F51349982C2EA01E006FE6AE /* TestTaskTests.swift in Sources */,
+				F5D703852C34C21E005D9BDB /* MockFlightsService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
