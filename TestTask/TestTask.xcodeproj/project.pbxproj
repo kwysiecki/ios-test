@@ -26,6 +26,7 @@
 		F5D703832C34AFCF005D9BDB /* FlightListViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D703822C34AFCF005D9BDB /* FlightListViewContainer.swift */; };
 		F5D703852C34C21E005D9BDB /* MockFlightsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D703842C34C21E005D9BDB /* MockFlightsService.swift */; };
 		F5D703872C34C2BC005D9BDB /* FlightListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D703862C34C2BC005D9BDB /* FlightListViewModelTests.swift */; };
+		F5D703892C3547BF005D9BDB /* FlightListViewModelWrapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D703882C3547BF005D9BDB /* FlightListViewModelWrapperTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		F5D703822C34AFCF005D9BDB /* FlightListViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightListViewContainer.swift; sourceTree = "<group>"; };
 		F5D703842C34C21E005D9BDB /* MockFlightsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFlightsService.swift; sourceTree = "<group>"; };
 		F5D703862C34C2BC005D9BDB /* FlightListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightListViewModelTests.swift; sourceTree = "<group>"; };
+		F5D703882C3547BF005D9BDB /* FlightListViewModelWrapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightListViewModelWrapperTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				F51349972C2EA01E006FE6AE /* TestTaskTests.swift */,
 				F5D703842C34C21E005D9BDB /* MockFlightsService.swift */,
 				F5D703862C34C2BC005D9BDB /* FlightListViewModelTests.swift */,
+				F5D703882C3547BF005D9BDB /* FlightListViewModelWrapperTests.swift */,
 			);
 			path = TestTaskTests;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 			files = (
 				F5D703872C34C2BC005D9BDB /* FlightListViewModelTests.swift in Sources */,
 				F51349982C2EA01E006FE6AE /* TestTaskTests.swift in Sources */,
+				F5D703892C3547BF005D9BDB /* FlightListViewModelWrapperTests.swift in Sources */,
 				F5D703852C34C21E005D9BDB /* MockFlightsService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
