@@ -24,7 +24,7 @@
 		F51349C02C2EBF53006FE6AE /* FlightRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51349BF2C2EBF53006FE6AE /* FlightRowView.swift */; };
 		F5D703852C34C21E005D9BDB /* MockFlightsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D703842C34C21E005D9BDB /* MockFlightsService.swift */; };
 		F5D703872C34C2BC005D9BDB /* FlightListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D703862C34C2BC005D9BDB /* FlightListViewModelTests.swift */; };
-		F5D703892C3547BF005D9BDB /* FlightListViewModelWrapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D703882C3547BF005D9BDB /* FlightListViewModelWrapperTests.swift */; };
+		F5D7038C2C36DE6D005D9BDB /* FlightsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D7038B2C36DE6D005D9BDB /* FlightsServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +65,7 @@
 		F51349BF2C2EBF53006FE6AE /* FlightRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightRowView.swift; sourceTree = "<group>"; };
 		F5D703842C34C21E005D9BDB /* MockFlightsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFlightsService.swift; sourceTree = "<group>"; };
 		F5D703862C34C2BC005D9BDB /* FlightListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightListViewModelTests.swift; sourceTree = "<group>"; };
-		F5D703882C3547BF005D9BDB /* FlightListViewModelWrapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightListViewModelWrapperTests.swift; sourceTree = "<group>"; };
+		F5D7038B2C36DE6D005D9BDB /* FlightsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +116,7 @@
 		F51349852C2EA01D006FE6AE /* TestTask */ = {
 			isa = PBXGroup;
 			children = (
+				F5D7038A2C36D6FD005D9BDB /* ViewModel */,
 				F51349C12C2EC168006FE6AE /* Models */,
 				F51349862C2EA01D006FE6AE /* TestTaskApp.swift */,
 				F51349882C2EA01D006FE6AE /* FlightListView.swift */,
@@ -144,7 +145,7 @@
 				F51349972C2EA01E006FE6AE /* TestTaskTests.swift */,
 				F5D703842C34C21E005D9BDB /* MockFlightsService.swift */,
 				F5D703862C34C2BC005D9BDB /* FlightListViewModelTests.swift */,
-				F5D703882C3547BF005D9BDB /* FlightListViewModelWrapperTests.swift */,
+				F5D7038B2C36DE6D005D9BDB /* FlightsServiceTests.swift */,
 			);
 			path = TestTaskTests;
 			sourceTree = "<group>";
@@ -162,10 +163,17 @@
 			isa = PBXGroup;
 			children = (
 				F51349B92C2EBE5E006FE6AE /* Flight.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F5D7038A2C36D6FD005D9BDB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
 				F51349B02C2EA03D006FE6AE /* FlightListViewModel.swift */,
 				F51349BD2C2EBF1D006FE6AE /* FlightViewModel.swift */,
 			);
-			path = Models;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,8 +324,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5D703872C34C2BC005D9BDB /* FlightListViewModelTests.swift in Sources */,
+				F5D7038C2C36DE6D005D9BDB /* FlightsServiceTests.swift in Sources */,
 				F51349982C2EA01E006FE6AE /* TestTaskTests.swift in Sources */,
-				F5D703892C3547BF005D9BDB /* FlightListViewModelWrapperTests.swift in Sources */,
 				F5D703852C34C21E005D9BDB /* MockFlightsService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

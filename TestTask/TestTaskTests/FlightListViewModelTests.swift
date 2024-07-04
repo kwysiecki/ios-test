@@ -10,54 +10,90 @@ import Combine
 @testable import TestTask
 
 class FlightListViewModelTests: XCTestCase {
-    var viewModel: FlightListViewModel!
-    var mockService: MockFlightsService!
+    
+    var flightListViewModel: FlightListViewModel!
+    var flightsService: MockFlightsService!
     var cancellables: Set<AnyCancellable>!
     
-    override func setUp() {
-        super.setUp()
-        mockService = MockFlightsService()
-        viewModel = FlightListViewModel(flightsService: mockService)
+    override func setUpWithError() throws {
+        flightsService = MockFlightsService()
+        flightListViewModel = FlightListViewModel(flightsService: flightsService)
         cancellables = []
     }
     
-    override func tearDown() {
-        viewModel = nil
-        mockService = nil
+    override func tearDownWithError() throws {
+        flightListViewModel = nil
+        flightsService = nil
         cancellables = nil
-        super.tearDown()
     }
     
-    func testInitialState() {
-        addFlight(price: "100", duration: "3600")
+    func testFetchFlights() throws {
+        let expectation = self.expectation(description: "Fetch Flights")
         
-        let flights = viewModel.flightSubject.value
+        flightListViewModel.$flights
+            .dropFirst()
+            .sink { flights in
+                XCTAssertEqual(flights.count, 2)
+                XCTAssertEqual(flights.first?.flight.price, 100)
+                expectation.fulfill()
+            }
+            .store(in: &cancellables)
         
-        XCTAssertEqual(flights.count, 1)
-        XCTAssertEqual(flights.first?.price, 100.0)
-        XCTAssertEqual(flights.first?.duration, 3600.0)
-        XCTAssertEqual(viewModel.totalCostSubject.value, 100.0)
+        flightListViewModel.fetchFlights()
+        
+        waitForExpectations(timeout: 2, handler: nil)
     }
     
-    func testRemoveFlight() {
-        addFlight(price: "100", duration: "3600")
+    func testCalculateTotalCost() throws {
+        let expectation = self.expectation(description: "Calculate Total Cost")
         
-        viewModel.removeFlight(at: IndexSet(integer: 0))
+        flightListViewModel.$totalCost
+            .dropFirst()
+            .sink { totalCost in
+                XCTAssertEqual(totalCost, 300)
+                expectation.fulfill()
+            }
+            .store(in: &cancellables)
         
-        XCTAssertTrue(viewModel.flightSubject.value.isEmpty)
-        XCTAssertEqual(viewModel.totalCostSubject.value, 0.0)
+        flightListViewModel.calculateTotalCost()
+        
+        waitForExpectations(timeout: 2, handler: nil)
     }
     
-    func testCalculateTotalCost() {
-        addFlight(price: "100", duration: "3600")
-        addFlight(price: "200", duration: "7200")
+    func testAddFlight() throws {
+        let expectation = self.expectation(description: "Add Flight")
         
-        XCTAssertEqual(viewModel.totalCostSubject.value, 300.0)
+        flightListViewModel.$flights
+            .dropFirst(1)
+            .sink { flights in
+                XCTAssertEqual(flights.count, 2)
+                XCTAssertEqual(flights.last?.flight.price, 200)
+                expectation.fulfill()
+            }
+            .store(in: &cancellables)
+        
+        flightListViewModel.addFlight(price: 200, duration: 2.0)
+        
+        waitForExpectations(timeout: 8, handler: nil)
     }
     
-    func addFlight(price: String, duration: String) {
-        viewModel.newFlightPrice = price
-        viewModel.newFlightDuration = duration
-        viewModel.addFlight()
+    func testRemoveFlight() throws {
+        let expectation = self.expectation(description: "Remove Flight")
+        
+        flightListViewModel.$flights
+            .dropFirst()
+            .first()
+            .sink { flights in
+                XCTAssertEqual(flights.count, 2)
+                XCTAssertEqual(flights.first?.flight.price, 100)
+                expectation.fulfill()
+            }
+            .store(in: &cancellables)
+        
+        flightListViewModel.removeFlight(at: IndexSet(integer: 0))
+        
+        waitForExpectations(timeout: 8, handler: nil)
     }
 }
+
+

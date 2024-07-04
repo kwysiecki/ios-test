@@ -15,7 +15,7 @@ class FlightListViewModel: ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
     private let flightsService: FlightsServiceProtocol
     
-    init(flightsService: FlightsService) {
+    init(flightsService: FlightsServiceProtocol) {
         self.flightsService = flightsService
         fetchFlights()
         calculateTotalCost()

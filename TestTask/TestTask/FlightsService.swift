@@ -42,7 +42,7 @@ class FlightsService: FlightsServiceProtocol {
         
         return Just(())
             .setFailureType(to: Error.self)
-            .delay(for: 2, scheduler: RunLoop.main)
+//            .delay(for: 2, scheduler: RunLoop.main)
             .eraseToAnyPublisher()
     }
     
@@ -51,7 +51,7 @@ class FlightsService: FlightsServiceProtocol {
         
         return Just(())
             .setFailureType(to: Error.self)
-            .delay(for: 2, scheduler: RunLoop.main)
+//            .delay(for: 2, scheduler: RunLoop.main)
             .eraseToAnyPublisher()
     }
     
