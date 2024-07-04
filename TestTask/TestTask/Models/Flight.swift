@@ -7,8 +7,9 @@
 
 import Foundation
 
+//Identifiable wymog swiftUI
 struct Flight: Identifiable {
-    var id = UUID()
-    var price: Double
-    var duration: Double
+    let id = UUID()
+    let price: Double
+    let duration: Double
 }
